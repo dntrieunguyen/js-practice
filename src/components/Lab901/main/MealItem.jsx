@@ -1,5 +1,5 @@
 import React from 'react';
-
+// { name, description, price }
 export default function MealItem({ name, description, price }) {
    return (
       <>

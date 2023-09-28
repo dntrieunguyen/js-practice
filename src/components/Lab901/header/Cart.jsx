@@ -4,7 +4,7 @@ import CartItems from './CartItems';
 export default function Cart() {
    return (
       <>
-         <div id="Cart" className="">
+         <div id="Cart" className="hidden">
             <div className="mealCart">
                <CartItems></CartItems>
 
