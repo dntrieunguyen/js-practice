@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../../App.scss';
+
+@layer components {
+   .formInput {
+      @apply bg-white w-[500px] p-3 rounded-xl;
+
+      .formInput__label {
+         @apply font-bold;
+      }
+
+      .formInput__field {
+         @apply w-full border-2 my-2;
+      }
+
+      .btnSubmit {
+         @apply px-6 my-2 bg-purple-800 text-white py-1;
+      }
+   }
+}
+
+@layer components {
+   .userList {
+      @apply bg-white w-[500px] p-2 rounded-xl flex flex-wrap p-3 mt-3 gap-y-2;
+
+      .userList__text {
+         @apply w-full p-1 border-2;
+      }
+   }
+}
+
+@layer components {
+   .errorModal {
+      @apply z-10 absolute top-0 left-0 w-full h-[900px] bg-[rgba(0,0,0,0.5)];
+
+      .errorModal-content {
+         @apply bg-white rounded-xl z-50 w-[500px];
+         @extend .center;
+
+         .errorModal__header {
+            @apply bg-purple-800 p-3 text-white font-bold rounded-t-xl;
+         }
+         .errorModal__text {
+            @apply p-3 pb-14;
+         }
+         .errorModal__btn {
+            @apply px-6 py-1 my-3 bg-purple-800 text-white w-[fit-content] ml-[25.5rem];
+         }
+      }
+   }
+}

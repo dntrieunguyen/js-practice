@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+   #root {
+      @apply bg-gray-800;
+   }
+}
+
+body {
+   font-size: 16px;
+   margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+}
+// reset CSS
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+// Tao class can giua item bang absolute
+@layer components {
+   .center {
+      @apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%];
+   }
+}
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+// Background
+@layer components {
+   .myBackground {
+      @apply relative w-full h-[1000px];
+
+      @layer components {
+         .boxContent {
+            @apply w-[500px]  bg-[#1c1917] p-2 rounded-md;
+         }
+      }
+   }
+}
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+//Expense Item
+@layer components {
+   .expenseItem {
+      @apply flex bg-[#57534e] rounded-xl m-3 p-2 text-white items-center justify-between gap-2;
+
+      // Expense datetime
+      @layer components {
+         .expenseItemDate {
+            @apply flex-[1] bg-[#292524] p-2 text-center rounded-xl border border-white;
+
+            // Month
+
+            .expenseItemDateM {
+               @apply text-[14px] font-bold;
+            }
+
+            // Year
+
+            .expenseItemDateY {
+               @apply text-[12px];
+            }
+
+            // Date
+
+            .expenseItemDateD {
+               @apply font-bold;
+            }
+         }
+      }
+
+      // Expense Price
+      @layer components {
+         .expenseItemPrice {
+            @apply flex-1 font-bold bg-[#4a044e] px-3 py-2 text-center rounded-xl border border-white h-[fit-content];
+         }
+      }
+      // Expense Title
+      @layer components {
+         .expenseItemTitle {
+            @apply flex-[4] font-bold;
+         }
+      }
+
+      // btnUpdate
+      @layer components {
+         .btnUpdate {
+            @apply text-[9px] px-2 py-1 bg-blue-gray-300 rounded-md;
+         }
+      }
+   }
+}
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+// Form input
+@layer components {
+   .extenseForm {
+      @apply my-3 p-3  bg-[#c084fc] w-[500px] rounded-xl;
+
+      @layer components {
+         .expandForm {
+            @apply flex flex-wrap justify-end;
+         }
+      }
+      // input field
+      @layer components {
+         .inputField {
+            @apply flex flex-wrap gap-3;
+
+            // Input title
+            @layer components {
+               .inputTitle {
+                  @apply font-bold mb-1;
+               }
+            }
+
+            // Form title
+            @layer components {
+               .formInput {
+                  @apply flex flex-col;
+
+                  // Input each filed
+                  @layer components {
+                     .txtTitle,
+                     .txtAmount {
+                        @apply p-1 rounded-md;
+                     }
+                  }
+                  @layer components {
+                     .txtDate {
+                        @apply rounded-md p-1 w-[11.8rem];
+                     }
+                  }
+               }
+            }
+         }
+      }
+
+      // input button
+      @layer components {
+         .formBtn {
+            @apply bg-[#4a044e] text-white px-2 py-3 rounded-xl;
+         }
+      }
+      @layer components {
+         .formBtnCancel {
+            @extend .formBtn;
+            @apply bg-red-700 mx-2;
+         }
+      }
+      @layer components {
+         .formBtnExpand {
+            @extend .formBtn;
+            @apply w-full;
+         }
+      }
+   }
+}
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+// Filter Form
+@layer components {
+   .expenseFilter {
+      @apply p-3 flex justify-between;
+      // Filter title
+
+      .filterTitle {
+         @apply text-white font-bold;
+      }
+   }
+   // Filter input
+
+   .sltYBtn {
+      @apply w-[100px] p-1 text-center rounded-md;
+   }
+}
