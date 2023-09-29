@@ -1,10 +1,9 @@
-import React from 'react';
 import CartItems from './CartItems';
 
-export default function Cart() {
+export default function Cart({ onCloseModal }) {
    return (
       <>
-         <div id="Cart" className="hidden">
+         <div id="Cart" className="">
             <div className="mealCart">
                <CartItems></CartItems>
 
@@ -14,7 +13,7 @@ export default function Cart() {
                      <p>$total price</p>
                   </div>
                   <div className="CartTotal__btn">
-                     <button>Close</button>
+                     <button onClick={onCloseModal}>Close</button>
                      <button>Order</button>
                   </div>
                </div>

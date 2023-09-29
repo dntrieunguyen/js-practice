@@ -1,7 +1,6 @@
-import React from 'react';
 import MealItem from './MealItem';
 
-export default function MealItemForm({ data }) {
+export default function MealItemForm({ data, onOpenModal }) {
    return (
       <>
          <div className="container ">
@@ -18,9 +17,11 @@ export default function MealItemForm({ data }) {
                      <div className="mealCard__value">
                         <form action="">
                            <label htmlFor="">Amount</label>
-                           <input type="number" name="" id="" disabled />
+                           <input type="number" disabled />
                         </form>
-                        <button type="submit">+ Add</button>
+                        <button type="submit" onClick={onOpenModal}>
+                           + Add
+                        </button>
                      </div>
                   </div>
                ))}
