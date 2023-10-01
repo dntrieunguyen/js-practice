@@ -4,6 +4,7 @@ import HeaderCartButton from './HeaderCartButton';
 export default function Header() {
    return (
       <>
+         <div id="ModalCart"></div>
          <header>
             <nav className="navbar">
                <div className="container ">

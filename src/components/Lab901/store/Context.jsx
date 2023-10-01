@@ -29,7 +29,18 @@ function ContextProvider({ children }) {
          price: 18.99,
       },
    ];
+
+   const CartContext = {
+      items: [],
+      totalAmount: 0,
+      addItem: item => {},
+      removeItem: id => {},
+   };
+
    const [showModal, setShowModal] = useState(false);
+   const initState = {
+      items: '',
+   };
 
    const onCloseModal = () => {
       setShowModal(false);
@@ -38,6 +49,15 @@ function ContextProvider({ children }) {
    const onOpenModal = () => {
       setShowModal(true);
    };
+   // Create useReducer
+
+   // 1. Constants initialState
+
+   // 2. Action
+
+   // 3. reducer
+
+   // 4. dispatch
 
    const value = {
       data,

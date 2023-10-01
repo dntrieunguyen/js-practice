@@ -8,7 +8,6 @@ import { ContextProvider } from './store/Context';
 export default function Lab901() {
    return (
       <ContextProvider>
-         <div id="ModalCart"></div>
          <Header></Header>
          <div className="meal-main">
             <MealsSummary></MealsSummary>
