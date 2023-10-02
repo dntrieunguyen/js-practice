@@ -44,7 +44,7 @@ const cartState = {
 };
 
 // Action
-const ADD_ITEMS = 'add_items';
+const UPDATE_ITEMS = 'update_items';
 const DEL_ITEMS = 'delete_items';
 const SET_AMOUNT = 'set_amount';
 
@@ -55,9 +55,9 @@ const setAmount = (itemId, amount) => {
    };
 };
 
-const addItems = payload => {
+const updateItems = payload => {
    return {
-      type: ADD_ITEMS,
+      type: UPDATE_ITEMS,
       payload,
    };
 };
@@ -65,7 +65,7 @@ const addItems = payload => {
 // reduce
 
 const reducer = (state, action) => {
-   console.log('Action >>>', action);
+   // console.log('Action >>>', action);
    // console.log('PREV state >>>', state);
 
    switch (action.type) {
@@ -83,26 +83,37 @@ const reducer = (state, action) => {
          // Trả về item được cập nhật bằng updatedItems và totalAmount
          return { ...state, item: updatedItems };
 
-      case ADD_ITEMS:
-         const inputModalItems = state.item.filter(item => {
-            if (item.id === action.payload.id && action.payload.amount > 0) {
-               return item;
-            }
-         });
-
-         console.log('Input items >>>', inputModalItems);
-         if (inputModalItems.length === 0) {
-            state.modalItem = state.modalItem;
-         }
-         console.log('Updated items >>>', state.modalItem);
-
+      case UPDATE_ITEMS:
          // Tính totalAmount
          const totalAmount = state.item.reduce(
             (total, item) => total + item.amount,
             0,
          );
 
-         return { ...state, totalAmount };
+         // Tạo biến mới cho payload
+         const payload = action.payload;
+
+         // Tạo biến mới cho modalItem
+         let updatedModalItems = state.modalItem;
+
+         // Kiểm tra nếu payload đã tồn tại trong mảng
+         const isExisting = updatedModalItems.findIndex(
+            item => item.id === payload.id,
+         );
+
+         // Nếu thêm payload vào modalItem, nếu payload tồn tại thì cập nhật modalItem
+         if (payload.amount >= 0) {
+            if (isExisting === -1) {
+               updatedModalItems.push(payload);
+            } else {
+               updatedModalItems = updatedModalItems.map(item =>
+                  item.id === payload.id ? payload : item,
+               );
+            }
+         }
+
+         console.log('Updated Modal Items >>>', updatedModalItems);
+         return { ...state, totalAmount, modalItem: updatedModalItems };
 
       default:
          throw Error;
@@ -113,8 +124,8 @@ export default function Lab901() {
    // dispatch
    const [state, dispatch] = useReducer(reducer, cartState);
    console.log('new state >>>', state);
+   // console.log(state.modalItem.length);
 
-   const handleAddBtn = () => {};
    return (
       <ContextProvider>
          <Header cartState={state}></Header>
@@ -124,7 +135,7 @@ export default function Lab901() {
                data={state.item}
                dispatch={dispatch}
                setAmount={setAmount}
-               addItems={addItems}
+               addItems={updateItems}
             ></MealItemForm>
          </div>
       </ContextProvider>

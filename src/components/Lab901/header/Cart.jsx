@@ -4,7 +4,7 @@ import { Context } from '../store/Context';
 
 export default function Cart({ cartState }) {
    const context = useContext(Context);
-   const data = cartState.item.filter(item => item.amount > 0);
+   const data = cartState.modalItem.filter(item => item.amount > 0);
    const totalPrice = data
       .reduce((total, item) => {
          return (total =
