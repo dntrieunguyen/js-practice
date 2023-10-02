@@ -19,12 +19,12 @@ const data = [
       description: 'A german specialty!',
       price: 16.5,
    },
-   {
-      id: 'm3',
-      name: 'Barbecue Burger',
-      description: 'American, raw, meaty',
-      price: 12.99,
-   },
+   // {
+   //    id: 'm3',
+   //    name: 'Barbecue Burger',
+   //    description: 'American, raw, meaty',
+   //    price: 12.99,
+   // },
    {
       id: 'm4',
       name: 'Green Bowl',
