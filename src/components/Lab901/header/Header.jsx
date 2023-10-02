@@ -1,7 +1,7 @@
 import React from 'react';
 import ImgBg from '../assets/meals.jpg';
 import HeaderCartButton from './HeaderCartButton';
-export default function Header() {
+export default function Header({ cartState }) {
    return (
       <>
          <div id="ModalCart"></div>
@@ -9,7 +9,7 @@ export default function Header() {
             <nav className="navbar">
                <div className="container ">
                   <h2 className="navBrand">ReactMeals</h2>
-                  <HeaderCartButton></HeaderCartButton>
+                  <HeaderCartButton cartState={cartState}></HeaderCartButton>
                </div>
             </nav>
             <img src={ImgBg} className="header-background" alt="Background" />

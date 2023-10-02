@@ -67,7 +67,7 @@
          @apply pb-3 mx-auto;
 
          .available-meal {
-            @apply p-6 my-20 mx-[16rem]  bg-white rounded-xl;
+            @apply p-6 my-20 mx-[5rem] lg:mx-[16rem]  bg-white rounded-xl;
          }
       }
    }
